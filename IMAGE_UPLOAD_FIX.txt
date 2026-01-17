@@ -1,0 +1,83 @@
+🖼️ IMAGE UPLOAD FIX - FOR BUYERS TO SEE SELLER IMAGES
+
+═══════════════════════════════════════════════════════════
+
+THE PROBLEM:
+- Seller uploads image
+- Image shows in preview
+- But buyer can't see the image (shows crop emoji instead)
+
+THE REASON:
+- Images were saved as local file paths (file://...)
+- Local paths only work on the seller's device
+- Buyers need a public URL to see the image
+
+THE SOLUTION:
+- Upload images to Supabase Storage
+- Get a public URL that works for everyone
+- Buyers can now see the product images!
+
+═══════════════════════════════════════════════════════════
+
+🚨 REQUIRED: RUN THIS SQL IN SUPABASE
+
+1. Open Supabase Dashboard
+2. Go to SQL Editor → New Query
+3. Copy ALL content from: SETUP_IMAGE_STORAGE.sql
+4. Click RUN
+5. You should see the bucket listed
+
+═══════════════════════════════════════════════════════════
+
+✅ TEST IT:
+
+1. Open app
+2. Switch to Seller mode
+3. Click "New Listing"
+4. Fill in crop, quantity, price
+5. Click "Take Photo or Upload"
+6. Choose Camera or Gallery
+7. Select/take a photo
+8. Wait for upload (you'll see "Image uploaded!")
+9. Click "Create Listing"
+10. Switch to Buyer mode
+11. You should see the image in the listing!
+
+═══════════════════════════════════════════════════════════
+
+WHAT I FIXED:
+
+✅ Images now upload to Supabase Storage
+✅ Public URLs generated for each image
+✅ Buyers can see seller's product images
+✅ Fallback to local preview if upload fails
+✅ Clear success/error messages
+✅ Base64 encoding for reliable uploads
+
+═══════════════════════════════════════════════════════════
+
+IF IMAGE UPLOAD STILL FAILS:
+
+Check these:
+1. Did you run SETUP_IMAGE_STORAGE.sql?
+2. Is the bucket "marketplace-images" created?
+3. Are you logged in? (check Profile tab)
+4. Check console for error messages
+
+To verify bucket exists in Supabase:
+- Go to Storage section in Supabase Dashboard
+- You should see "marketplace-images" bucket
+- It should be marked as "Public"
+
+═══════════════════════════════════════════════════════════
+
+HOW IT WORKS NOW:
+
+1. Seller picks image from camera/gallery
+2. Image is converted to base64
+3. Base64 is uploaded to Supabase Storage
+4. Supabase returns a public URL
+5. URL is saved with the listing
+6. Buyers fetch the URL and see the image!
+
+═══════════════════════════════════════════════════════════

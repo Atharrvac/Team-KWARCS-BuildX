@@ -1,0 +1,37 @@
+🎉 IMAGE UPLOAD FEATURE ADDED!
+
+WHAT CHANGED:
+✅ Sellers can now take photos with camera
+✅ Sellers can choose photos from gallery  
+✅ Image preview before submitting
+✅ Remove/replace images easily
+✅ Auto-upload to Supabase Storage
+
+SETUP (2 STEPS):
+1. Run SQL: supabase_storage_setup.sql in Supabase SQL Editor
+2. Test: Open app → Seller Mode → New Listing → "Take Photo or Upload"
+
+USER FLOW:
+1. Seller clicks "New Listing"
+2. Fills crop details
+3. Clicks "Take Photo or Upload" button
+4. Chooses "Take Photo" or "Choose from Gallery"
+5. Grants permission (first time only)
+6. Edits/crops image
+7. Image uploads automatically
+8. Preview shows with remove option
+9. Submit listing with image!
+
+FILES CHANGED:
+- mobile/app/(tabs)/index.jsx (added upload logic)
+- supabase_storage_setup.sql (new storage bucket)
+
+FEATURES:
+📸 Camera capture
+🖼️ Gallery selection
+✂️ Image cropping (4:3)
+🗜️ Auto compression
+👁️ Live preview
+🗑️ Remove option
+🌐 Hindi support
+⚡ Loading states

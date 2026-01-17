@@ -1,0 +1,82 @@
+🧪 TEST CREATE LISTING - STEP BY STEP
+
+═══════════════════════════════════════════════════════════
+
+STEP 1: RUN THE SQL (REQUIRED!)
+═══════════════════════════════════════════════════════════
+
+1. Open Supabase Dashboard
+2. Go to SQL Editor
+3. Click "New Query"
+4. Open file: RUN_THIS_SQL_NOW.sql
+5. Copy ALL the content
+6. Paste in Supabase SQL Editor
+7. Click RUN
+8. You should see columns listed at the bottom
+
+═══════════════════════════════════════════════════════════
+
+STEP 2: TEST IN THE APP
+═══════════════════════════════════════════════════════════
+
+1. Open the app (http://localhost:8081)
+2. Make sure you're LOGGED IN (check Profile tab)
+3. Go to Home tab
+4. Click the toggle at top-right to switch to SELLER mode
+5. Click "New Listing" button (green button)
+6. Fill in:
+   - Tap on a crop (e.g., Soybean)
+   - Quantity: 50
+   - Price: 4500
+   - (Optional) Location, Phone, Description
+   - (Optional) Click "Take Photo or Upload" for image
+7. Click "Create Listing" button at bottom
+
+═══════════════════════════════════════════════════════════
+
+EXPECTED RESULTS:
+═══════════════════════════════════════════════════════════
+
+✅ SUCCESS:
+- Alert shows "Your listing is now live!"
+- Modal closes
+- Your listing appears in "My Listings"
+- Switch to Buyer mode - listing visible in Marketplace
+
+❌ IF ERROR:
+- "Please select a crop" → Tap on a crop icon
+- "Please enter valid quantity" → Enter a number
+- "Please enter valid price" → Enter a number
+- "You must be logged in" → Go to Profile, sign out, sign in again
+- "Database Setup Required" → Run the SQL from Step 1
+- "Permission Error" → Run the SQL from Step 1
+
+═══════════════════════════════════════════════════════════
+
+WHAT I FIXED:
+═══════════════════════════════════════════════════════════
+
+✅ Simplified image picker (no Supabase storage needed)
+✅ Better error messages
+✅ Validates all inputs before submitting
+✅ Only sends fields that exist in database
+✅ Shows helpful error messages for common issues
+✅ Reloads listings after creating
+
+═══════════════════════════════════════════════════════════
+
+STILL NOT WORKING?
+═══════════════════════════════════════════════════════════
+
+Check the console:
+1. Press Cmd+D in the app (or shake device)
+2. Select "Debug JS Remotely"
+3. Open Chrome DevTools Console
+4. Try creating listing again
+5. Look for error messages starting with:
+   - "Creating listing with data:"
+   - "Supabase insert error:"
+
+Share the error message and I'll help fix it!
+
+═══════════════════════════════════════════════════════════

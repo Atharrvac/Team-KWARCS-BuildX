@@ -1,0 +1,110 @@
+🚨 CREATE LISTING NOT WORKING - COMPLETE FIX 🚨
+
+═══════════════════════════════════════════════════════════
+
+MOST LIKELY ISSUE: Missing database columns
+
+═══════════════════════════════════════════════════════════
+
+✅ QUICK FIX (Copy & Paste This SQL):
+
+1. Open Supabase Dashboard
+2. Go to SQL Editor
+3. Click "New Query"
+4. Paste this:
+
+ALTER TABLE public.marketplace_listings 
+ADD COLUMN IF NOT EXISTS quality_grade TEXT DEFAULT 'A',
+ADD COLUMN IF NOT EXISTS contact_phone TEXT,
+ADD COLUMN IF NOT EXISTS image_url TEXT;
+
+5. Click RUN
+6. Done! Try creating listing again.
+
+═══════════════════════════════════════════════════════════
+
+📱 TEST IT:
+
+1. Open app
+2. Switch to Seller mode (toggle at top)
+3. Click "New Listing"
+4. Fill: Crop=Soybean, Quantity=50, Price=4500
+5. Click "Create Listing"
+6. Should see "Your listing is now live!"
+
+═══════════════════════════════════════════════════════════
+
+🔍 IF STILL NOT WORKING:
+
+Check these in order:
+
+1. ARE YOU LOGGED IN?
+   - Go to Profile tab
+   - See your name/email?
+   - If not → Sign out and sign in
+
+2. DOES TABLE EXIST?
+   Run: SELECT * FROM marketplace_listings LIMIT 1;
+   If error → Run supabase_marketplace_FIXED.sql
+
+3. DO YOU HAVE PERMISSION?
+   Run: SELECT auth.uid();
+   Should show your user ID
+   If null → You're not logged in
+
+4. CHECK CONSOLE LOGS:
+   - Press Cmd+D in app
+   - Select "Debug JS Remotely"
+   - Open Chrome console
+   - Try creating listing
+   - Look for error message
+
+═══════════════════════════════════════════════════════════
+
+🎯 WHAT I FIXED IN THE CODE:
+
+✅ Better error messages (shows exact error)
+✅ Checks if user is logged in
+✅ Simplified image upload (uses blob)
+✅ Fallback if image upload fails
+✅ Added console logging for debugging
+✅ Reloads listings after creation
+
+═══════════════════════════════════════════════════════════
+
+📋 COMPLETE SQL SETUP (If starting fresh):
+
+Run supabase_marketplace_FIXED.sql - it has everything:
+- Creates table with all columns
+- Adds missing columns if table exists
+- Sets up RLS policies
+- Enables realtime
+- Creates indexes
+
+═══════════════════════════════════════════════════════════
+
+💡 COMMON ERRORS & FIXES:
+
+Error: "column quality_grade does not exist"
+Fix: Run the ALTER TABLE SQL above
+
+Error: "You must be logged in"
+Fix: Sign out and sign in again
+
+Error: "permission denied for table marketplace_listings"
+Fix: Run the RLS policies from supabase_marketplace_FIXED.sql
+
+Error: "relation marketplace_listings does not exist"
+Fix: Run supabase_marketplace_FIXED.sql completely
+
+═══════════════════════════════════════════════════════════
+
+🎉 AFTER IT WORKS:
+
+Your listing should:
+- Appear in "My Listings" immediately
+- Show on other devices in real-time
+- Be deletable by clicking trash icon
+- Support images (after running supabase_storage_setup.sql)
+
+═══════════════════════════════════════════════════════════
