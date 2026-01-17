@@ -1,0 +1,16 @@
+{
+  "status": "commited",
+  "type": "backend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "backendAuthType": "public",
+  "executionArgs": {
+    "projectName": "Farmer HEdging 3",
+    "projectPath": "/Users/atharva_c/Desktop/Farmer HEdging 3",
+    "testIds": [],
+    "additionalInstruction": "",
+    "envs": {
+      "API_KEY": "sk-user-LNvtrcUlqsLZgYbYPqMpnG6WDDO2-ip-26317RhkXqrHOkzM4E04VEiNS4CxmUVbKLjL6wr7ZTZiWwNLD6o9IxNk2Sj8Boez5BjxaxW-3wB7Php0EF5xQ2Y1AVFUyHjnl_0"
+    }
+  }
+}

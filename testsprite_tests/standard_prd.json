@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "project": "Oilseed Hedging Platform",
+    "date": "2025-12-30",
+    "prepared_by": "Standard PRD Generator"
+  },
+  "product_overview": "Oilseed Hedging Platform is a comprehensive, real-time mobile application designed for Indian oilseed farmers, traders, and buyers to manage price risk, optimize trading strategies, and access transparent contract management through AI-powered insights and blockchain technology. It integrates futures and options trading, AI-driven decision support, marketplace features, and financial literacy tools aimed at reducing price volatility impact and enhancing market efficiency.",
+  "core_goals": [
+    "Provide real-time NCDEX futures, spot, and options market data with frequent updates for accurate price tracking.",
+    "Enable users to perform advanced trading and hedging, with AI recommendations and portfolio risk management tools.",
+    "Offer a blockchain-secured forward contract system for transparent, enforceable agreements with digital signatures.",
+    "Deliver AI-powered decision support including price predictions, HOLX™ risk scoring, and personalized trading recommendations.",
+    "Create a marketplace for farmer-buyer direct interaction with multimedia listings and real-time updates.",
+    "Provide accessible learning modules to enhance financial literacy and empower farmers with market knowledge.",
+    "Support Farmer Producer Organization (FPO) integration for collective bargaining and group trading benefits.",
+    "Facilitate risk-free simulation mode for practice trading to build confidence without real monetary risk.",
+    "Deliver real-time notifications and feedback channels to enhance user engagement and platform responsiveness."
+  ],
+  "key_features": [
+    "Dashboard with real-time market overview including live price tickers, portfolio summaries, and AI insights.",
+    "Market screen offering live NCDEX futures contracts, interactive candlestick charts, and a dual options marketplace for PUT (farmers) and CALL (buyers) options.",
+    "Hedging screen with an advanced calculator, AI-backed optimal hedge ratio suggestions, and hedge effectiveness monitoring.",
+    "Forward Contract management leveraging blockchain for immutable records, digital signatures, and settlement tracking with real-time notifications.",
+    "Comprehensive Wallet for multi-currency balance tracking, margin management, and transaction history.",
+    "AutoHedge system enabling automated hedging strategies tailored to user risk tolerance and market conditions.",
+    "Marketplace for listing and managing oilseed product sales with rich multimedia support (photos/videos) and real-time updates.",
+    "Education module featuring 8 financial literacy modules with video lessons, simulations, quizzes, progress tracking, and certificates.",
+    "Simulation Mode allowing users to trade with virtual funds replicating real market data to hone trading skills without financial risk.",
+    "FPO Integration to facilitate membership management, collective bargaining, price comparison, and group trading features.",
+    "Community features for farmers including posts and discussions for knowledge and experience sharing.",
+    "Agricultural insurance offerings with policy listings and application workflows.",
+    "Decision Support System (DSS) presenting actionable market insights and HOLX™ risk scores.",
+    "Real-time notifications via WebSocket for prices, settlements, contract updates, and user alerts.",
+    "Secure authentication using JWT and robust backend architecture using Node.js, PostgreSQL, and WebSocket services."
+  ],
+  "user_flow_summary": [
+    "User registers or logs in via secure JWT authentication and selects user role (farmer/buyer/trader).",
+    "On the Dashboard, user accesses live market data, AI insights, and marketplace listings personalized by role and location.",
+    "User navigates to Market screen to view and trade NCDEX futures or engage in options market (PUT for farmers, CALL for buyers) with AI price predictions.",
+    "In Hedging screen, user calculates optimal hedge positions via AI calculator and executes hedging strategies with one-click actions.",
+    "User manages forward contracts by creating new contracts, accessing AI price suggestions, digitally signing, and tracking settlements with real-time blockchain-verified updates.",
+    "Marketplace allows creation and browsing of listings with multimedia uploads and live update subscriptions to engage buyers and sellers effectively.",
+    "Users may enroll in AutoHedge for automated risk management and monitor performance through dedicated screens.",
+    "Education module provides structured learning with interactive content that tracks progress and awards certificates upon completion.",
+    "Simulation Mode offers a virtual trading environment mimicking real market conditions for skill development without financial consequence.",
+    "FPO Integration supports membership management and group trading activities, enhancing collective bargaining power.",
+    "Community features enable posting, discussion, and feedback submission fostering collaboration and continuous improvement.",
+    "Notifications deliver timely alerts on market events, contract statuses, and platform updates maintaining user engagement."
+  ],
+  "validation_criteria": [
+    "Real-time market price data updates conform to expected 3-second intervals with low latency (<100ms).",
+    "Trading and hedging functionalities provide accurate calculations, AI recommendations match market conditions and user risk profiles.",
+    "Forward contracts are recorded immutably on blockchain, with transaction hashes logged and visible in the app.",
+    "Digital signature workflows operate smoothly with user confirmation prompts and settlement requests triggering WebSocket notifications appropriately.",
+    "Marketplace listings support multimedia uploads with image/video validation, real-time display, and low latency updates.",
+    "Educational modules record user progress accurately and produce certificates upon completion.",
+    "AutoHedge system triggers trades based on user-defined parameters and logs performance metrics precisely.",
+    "User authentication processes secure login, registration, and session management with JWT and password hash validation.",
+    "Simulation Mode transactions mirror real market data and update virtual account balances correctly.",
+    "API endpoints conform to documented routes, handle errors gracefully, and enforce JWT authentication for protected resources.",
+    "WebSocket broadcasts price updates, contract settlements, and notifications reliably without data loss.",
+    "System scalability and performance targets met with 99.9% uptime, response times under 200ms for API and sub 100ms for WebSocket.",
+    "Comprehensive security practices observed including data encryption, SQL injection prevention, and blockchain contract safety features.",
+    "User feedback system collects, stores, and presents feedback effectively for product improvement.",
+    "Multilingual support operational with English and Hindi interfaces throughout the mobile app."
+  ],
+  "code_summary": {
+    "project_name": "Oilseed Hedging Platform",
+    "description": "A comprehensive, real-time mobile application for farmers and traders to hedge oilseed prices, manage risk, and optimize trading strategies with AI-powered insights.",
+    "tech_stack": {
+      "backend": {
+        "framework": "Node.js + Express",
+        "runtime": "Node.js 18+",
+        "database": "PostgreSQL + Drizzle ORM",
+        "authentication": "JWT (JSON Web Tokens)",
+        "real_time": "WebSocket (ws)",
+        "ai_integration": "OpenAI API (optional)",
+        "orm": "Drizzle ORM",
+        "language": "JavaScript (ES6 modules)"
+      },
+      "frontend": {
+        "framework": "React Native + Expo",
+        "router": "Expo Router",
+        "state_management": "React Context API",
+        "charts": "react-native-chart-kit, victory-native, react-native-wagmi-charts",
+        "navigation": "React Navigation",
+        "storage": "@react-native-async-storage/async-storage, expo-secure-store",
+        "language": "JavaScript/JSX",
+        "ui_components": "React Native components, Expo components"
+      },
+      "blockchain": {
+        "network": "Polygon Mumbai Testnet",
+        "framework": "Hardhat",
+        "language": "Solidity",
+        "library": "ethers.js"
+      }
+    },
+    "architecture": {
+      "type": "Full-stack mobile application",
+      "backend_port": 3000,
+      "frontend_port": 8082,
+      "architecture_pattern": "RESTful API + WebSocket + Mobile App"
+    },
+    "main_features": [
+      "Real-time Market Data - Live NCDEX futures prices with 3-second updates, OHLC data, spot market prices, interactive charts",
+      "Advanced Trading & Hedging - Real-time futures trading with live P&L, comprehensive hedging calculator, optimal hedge ratio recommendations",
+      "AI-Powered Intelligence - 7-30 day price predictions with confidence scores, market sentiment analysis, trading recommendations",
+      "Professional Risk Management - Portfolio volatility analysis, Value at Risk (VaR) calculations, correlation matrix, hedge effectiveness monitoring",
+      "Advanced Analytics - Performance attribution analysis, Sharpe ratio, drawdown analysis, market comparison",
+      "Contract Management - Forward contracts with AI price suggestions, digital signature integration, settlement tracking",
+      "Comprehensive Wallet - Real-time balance tracking, margin management, settlement history, multi-currency support",
+      "AutoHedge System - Automated hedging based on market conditions, risk tolerance customization, performance tracking",
+      "Marketplace - Listing management for oilseed products, buyer-seller matching",
+      "Learning & Education - Comprehensive learning modules for financial literacy",
+      "FPO Integration - Farmer Producer Organization membership and benefits",
+      "Simulation Mode - Virtual trading platform with virtual money",
+      "Insurance - Agricultural insurance features",
+      "Community - Community features for farmers",
+      "Feedback System - User feedback collection",
+      "DSS (Decision Support System) - Decision support tools",
+      "Notifications - Real-time notifications system"
+    ],
+    "api_endpoints": {
+      "market": [
+        "GET /api/market/prices - Real-time prices",
+        "GET /api/market/ticker - Market ticker",
+        "GET /api/market/ncdex-futures - NCDEX futures contracts",
+        "GET /api/market/spot-prices - Spot market prices",
+        "GET /api/market/mandi/:location - Mandi-specific prices",
+        "GET /api/market/history/:crop - Historical data",
+        "GET /api/market/volatility/:crop - Volatility analysis",
+        "GET /api/market/basis/:crop - Basis data (spot vs futures)",
+        "GET /api/market/summary - Market summary",
+        "GET /api/market/movers - Top gainers/losers",
+        "POST /api/market/alerts - Create price alert",
+        "DELETE /api/market/alerts/:id - Delete alert"
+      ],
+      "trading": [
+        "GET /api/trading/positions/:userId - User positions",
+        "POST /api/trading/positions - Open position",
+        "POST /api/trading/positions/:id/close - Close position",
+        "GET /api/trading/pnl/:userId - P&L summary",
+        "GET /api/trading/history/:userId - Trade history",
+        "GET /api/trading/futures - Available futures",
+        "GET /api/trading/wallet/:userId - Wallet balance"
+      ],
+      "hedging": [
+        "GET /api/hedging/dashboard/:userId - Hedging dashboard",
+        "POST /api/hedging/calculate-hedge - Calculate optimal hedge",
+        "POST /api/hedging/execute - Execute hedge strategy",
+        "GET /api/hedging/recommendations/:userId - AI recommendations",
+        "GET /api/hedging/effectiveness/:userId - Hedge effectiveness",
+        "GET /api/hedging/basis/:crop - Basis analysis",
+        "GET /api/hedging/volatility/:crop - Volatility data",
+        "GET /api/hedging/analytics/:userId - Performance analytics",
+        "GET /api/hedging/risk-metrics/:userId - Risk metrics"
+      ],
+      "ai": [
+        "POST /api/ai/predict - Price prediction",
+        "POST /api/ai/recommend - Trading recommendation",
+        "GET /api/ai/sentiment/:crop - Market sentiment",
+        "GET /api/ai/insights/:crop - AI insights"
+      ],
+      "contracts": [
+        "GET /api/contracts/user/:userId - User contracts",
+        "GET /api/contracts/ai-suggestion/:crop - AI price suggestion",
+        "POST /api/contracts/ - Create contract",
+        "GET /api/contracts/:id - Contract details",
+        "POST /api/contracts/:id/execute - Execute contract"
+      ],
+      "auth": [
+        "POST /api/auth/register - Register user",
+        "POST /api/auth/login - Login user",
+        "POST /api/auth/demo-login - Demo access",
+        "GET /api/auth/profile/:userId - User profile",
+        "PUT /api/auth/profile/:userId - Update profile"
+      ],
+      "wallet": [
+        "GET /api/wallet/balance/:userId - Wallet balance",
+        "GET /api/wallet/transactions/:userId - Transaction history",
+        "POST /api/wallet/deposit - Deposit funds",
+        "POST /api/wallet/withdraw - Withdraw funds"
+      ],
+      "autohedge": [
+        "GET /api/autohedge/status/:userId - AutoHedge status",
+        "POST /api/autohedge/enroll - Enroll in AutoHedge",
+        "PUT /api/autohedge/settings/:userId - Update settings",
+        "GET /api/autohedge/performance/:userId - Performance metrics"
+      ],
+      "marketplace": [
+        "GET /api/marketplace/listings - All active listings",
+        "POST /api/marketplace/listings - Create listing",
+        "PUT /api/marketplace/listings/:id - Update listing",
+        "DELETE /api/marketplace/listings/:id - Delete listing"
+      ],
+      "learning": [
+        "GET /api/learning/modules - Learning modules",
+        "GET /api/learning/modules/:id - Module details",
+        "POST /api/learning/progress - Update progress"
+      ],
+      "insurance": [
+        "GET /api/insurance/policies - Insurance policies",
+        "POST /api/insurance/apply - Apply for insurance"
+      ],
+      "community": [
+        "GET /api/community/posts - Community posts",
+        "POST /api/community/posts - Create post"
+      ],
+      "feedback": [
+        "GET /api/feedback - Get feedback",
+        "POST /api/feedback - Submit feedback"
+      ],
+      "dss": [
+        "GET /api/dss/report - DSS report",
+        "POST /api/dss/generate - Generate DSS report"
+      ],
+      "notifications": [
+        "GET /api/notifications/:userId - User notifications",
+        "POST /api/notifications/mark-read - Mark as read"
+      ],
+      "health": [
+        "GET /health - Health check endpoint"
+      ]
+    },
+    "frontend_screens": [
+      "Dashboard - Market overview, prices, AI insights, portfolio overview",
+      "Market - NCDEX futures contracts, spot prices, market summary, gainers/losers",
+      "Trading - Live futures trading, position management, P&L tracking",
+      "Hedging - Hedging calculator, optimal hedge ratio, risk reduction analysis",
+      "Analytics - Portfolio performance, risk metrics, VaR calculations, correlation matrix",
+      "AI Insights - Price predictions, market sentiment, trading recommendations",
+      "Contracts - Forward contract management, AI price suggestions, settlement tracking",
+      "Wallet - Balance tracking, margin management, transaction history",
+      "AutoHedge - Automated hedging enrollment, settings, performance tracking",
+      "Education - Learning modules, progress tracking, certificates",
+      "FPO Integration - FPO membership, collective bargaining, price comparison",
+      "Simulation Mode - Virtual trading platform with virtual money",
+      "Profile - User profile management",
+      "Mandi Prices - Spot market prices from mandis",
+      "Insurance - Insurance policies and applications",
+      "Community - Community posts and discussions",
+      "Feedback - User feedback submission"
+    ],
+    "database_schema": {
+      "type": "PostgreSQL with Drizzle ORM",
+      "tables": [
+        "users - User accounts and profiles",
+        "contracts - Forward contracts",
+        "trading_positions - Trading positions",
+        "wallet_transactions - Wallet transactions",
+        "market_data - Market price data",
+        "listings - Marketplace listings",
+        "notifications - User notifications",
+        "learning_progress - Learning module progress",
+        "insurance_policies - Insurance policies",
+        "community_posts - Community posts",
+        "feedback - User feedback"
+      ]
+    },
+    "authentication": {
+      "method": "JWT (JSON Web Tokens)",
+      "endpoints": [
+        "POST /api/auth/register - User registration",
+        "POST /api/auth/login - User login",
+        "POST /api/auth/demo-login - Demo login for testing"
+      ],
+      "protected_routes": "Most API endpoints require JWT authentication"
+    },
+    "real_time_features": [
+      "WebSocket server for real-time updates",
+      "Live price updates (3-second intervals)",
+      "Real-time P&L calculation",
+      "Real-time notifications",
+      "WebSocket stats endpoint: GET /api/ws/stats"
+    ],
+    "testing_setup": {
+      "backend_testing": "Jest with Supertest",
+      "coverage": "Jest coverage reports available",
+      "test_location": "backend/__tests__/"
+    },
+    "deployment": {
+      "backend": "Node.js server on port 3000",
+      "frontend": "Expo mobile app",
+      "database": "PostgreSQL (local or Supabase/Neon)",
+      "blockchain": "Polygon Mumbai Testnet"
+    }
+  }
+}
